@@ -4,12 +4,12 @@ Rust version:[This Repositories](https://github.com/nogibjj/IDS706_MiniProj8_Yan
 [![Rust CI/CD Pipeline](https://github.com/nogibjj/IDS706_MiniProj8_YangXu/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/IDS706_MiniProj8_YangXu/actions/workflows/cicd.yml)
 
 
-Python version:[IDS706_MiniProj7_YangXu Repositories](https://github.com/nogibjj/IDS706_MiniProj7_YangXu)<br>
+Python version:[IDS706_MiniProj7_YangXu](https://github.com/nogibjj/IDS706_MiniProj7_YangXu)<br>
 [![Python CI](https://github.com/nogibjj/IDS706_MiniProj7_YangXu/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/IDS706_MiniProj7_YangXu/actions/workflows/cicd.yml)
 
 ## Project Overview
 
-This project rewrites a previous Python script into Rust, showcasing complex SQL queries using an external MySQL database. The goal is to demonstrate proficiency in constructing SQL queries in Rust and to highlight performance improvements over the Python counterpart. This Rust application also integrates Continuous Integration (CI) for automated testing.
+This project rewrites a previous Python script ([IDS706_MiniProj7_YangXu](https://github.com/nogibjj/IDS706_MiniProj7_YangXu)) into Rust, showcasing complex SQL queries using an external MySQL database. The goal is to demonstrate proficiency in constructing SQL queries in Rust and to highlight performance improvements over the Python counterpart. This Rust application also integrates Continuous Integration (CI) for automated testing.
 
 ## Table of Contents
 
@@ -115,15 +115,15 @@ The complex SQL query used in this project performs the following operations:
 - **Descriptive Statistics**:
 
     ```bash
-    {'Date': datetime.date(2023, 9, 1), 'Product': 'Apple', 'Price': 1.2, 'Quantity': 50, 'Discount': None, 'Total_Revenue': None}
-    {'Date': datetime.date(2023, 9, 1), 'Product': 'Banana', 'Price': 0.5, 'Quantity': 40, 'Discount': None, 'Total_Revenue': None}
-    {'Date': datetime.date(2023, 9, 1), 'Product': 'Cherry', 'Price': 2.5, 'Quantity': 20, 'Discount': None, 'Total_Revenue': None}
-    {'Date': datetime.date(2023, 9, 2), 'Product': 'Apple', 'Price': 1.3, 'Quantity': 45, 'Discount': None, 'Total_Revenue': None}
-    {'Date': datetime.date(2023, 9, 2), 'Product': 'Banana', 'Price': 0.6, 'Quantity': 50, 'Discount': None, 'Total_Revenue': None}
-    {'Date': datetime.date(2023, 9, 2), 'Product': 'Cherry', 'Price': 2.4, 'Quantity': 22, 'Discount': None, 'Total_Revenue': None}
-    {'Date': datetime.date(2023, 9, 3), 'Product': 'Apple', 'Price': 1.1, 'Quantity': 55, 'Discount': None, 'Total_Revenue': None}
-    {'Date': datetime.date(2023, 9, 3), 'Product': 'Banana', 'Price': 0.7, 'Quantity': 42, 'Discount': None, 'Total_Revenue': None}
-    {'Date': datetime.date(2023, 9, 3), 'Product': 'Cherry', 'Price': 2.6, 'Quantity': 19, 'Discount': None, 'Total_Revenue': None}
+    ("2023-09-03", "Apple", 1.1, 55, None, 60.500001311302185)
+    ("2023-09-01", "Apple", 1.2, 50, None, 60.00000238418579)
+    ("2023-09-02", "Apple", 1.3, 45, None, 58.49999785423279)
+    ("2023-09-02", "Cherry", 2.4, 22, None, 52.800002098083496)
+    ("2023-09-01", "Cherry", 2.5, 20, None, 50.0)
+    ("2023-09-03", "Cherry", 2.6, 19, None, 49.3999981880188)
+    ("2023-09-02", "Banana", 0.6, 50, None, 30.000001192092896)
+    ("2023-09-03", "Banana", 0.7, 42, None, 29.399999499320984)
+    ("2023-09-01", "Banana", 0.5, 40, None, 20.0)
     ```
 
 ## Performance Comparison
@@ -133,39 +133,47 @@ The performance improvements of the Rust project over the Python counterpart can
 1. **Time Execution**: Measure the time it takes for both the Python and Rust projects to execute.
 2. **Memory Usage**: Measure the RAM usage of both the Python and Rust projects during execution.
 
-
-# Python version test result:
+### Python version test result:
 ![Python Version Test Result](ver_py_testresult.png)
 
 ## Acknowledgements
 
 This Rust project is a rewrite of the Python project, [IDS706_MiniProj7_YangXu](https://github.com/nogibjj/IDS706_MiniProj7_YangXu). The aim is to enhance speed and resource efficiency.
 
-1. **Time Execution**: You can use the `time` command in Linux to measure the time it takes for both scripts to execute.
+1. **Time Execution**: Can use the `time` command in Linux to measure the time it takes for both scripts to execute.
 
-For Python:
+**For Python**:
    ```bash
-   time python your_python_script.py
+   time python3 mini_proj_7/mian.py
    ```
+![Python Version real execution time](ver_py_runtime.png)
 
-For Rust:
+**For Rust**:
    ```bash
    time cargo run --release
    ```
+![Rust Version real execution time](ver_rs_runtime.png)
 
-   Compare the real execution times.
+### Comparison of Execution Times:
+**Python Version**: `Took approximately 2.129 seconds for execution.`
+**Rust Version**: `Took approximately 1.071 seconds for execution.`
+### Runtime Result:
+`The Rust version executed almost twice as fast, showing a significant improvement in performance over the Python version.`
+<br>
 
-1.**Memory Usage**: You can use the memory-profiler package in Python and the heaptrack tool for Rust.
+2. **Memory Usage**: Can use the memory-profiler package in Python and the heaptrack tool for Rust.
 
-For Python:
+**For Python**:
    ```bash
-   mprof run week7/mini_proj_7/mian.py
+   mprof run mini_proj_7/mian.py
    mprof plot
    ```
 
-For Rust:
+**For Rust**:
    ```bash
    heaptrack cargo run --release
    heaptrack_gui heaptrack.week8mini.12345.gz
    ```
-This will give you insights into the memory allocation of both scripts.
+This will give insights into the memory allocation of both scripts.
+
+
