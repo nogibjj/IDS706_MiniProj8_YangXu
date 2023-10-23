@@ -3,6 +3,10 @@ name = "mini_proj_8"
 version = "0.1.0"
 edition = "2018"
 
+[[bin]]
+name = "mini_proj_8"
+path = "mini_proj_8/main.rs"
+
 [lib]
 name = "mini_proj_8"
 path = "mini_proj_8/lib.rs"
