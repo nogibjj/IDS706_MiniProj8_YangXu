@@ -1,6 +1,10 @@
 install:
 	cargo build
 
+rust-version:
+	rustc --version
+	cargo --version
+
 test:
 	cargo test
 
