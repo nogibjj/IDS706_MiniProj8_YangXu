@@ -133,8 +133,6 @@ The performance improvements of the Rust project over the Python counterpart can
 1. **Time Execution**: Measure the time it takes for both the Python and Rust projects to execute.
 2. **Memory Usage**: Measure the RAM usage of both the Python and Rust projects during execution.
 
-### Python version test result:
-![Python Version Test Result](ver_py_testresult.png)
 
 ## Acknowledgements
 
@@ -142,77 +140,82 @@ This Rust project is a rewrite of the Python project, [IDS706_MiniProj7_YangXu](
 
 1. **Time Execution**: Can use the `time` command in Linux to measure the time it takes for both scripts to execute.
 
-**For Python**:
-   ```bash
-   time python3 mini_proj_7/mian.py
-   ```
-![Python Version real execution time](ver_py_runtime.png)
+    **For Python**:
+    ```bash
+    time python3 mini_proj_7/mian.py
+    ```
+    ![Python Version real execution time](ver_py_runtime.png)
 
-**For Rust**:
-   ```bash
-   time cargo run --release
-   ```
-![Rust Version real execution time](ver_rs_runtime.png)
+    **For Rust**:
+    ```bash
+    time cargo run --release
+    ```
+    ![Rust Version real execution time](ver_rs_runtime.png)
 
-### Comparison of Execution Times:
-**Python Version**: `Took approximately 2.129 seconds for execution.`
-**Rust Version**: `Took approximately 1.071 seconds for execution.`
-### Runtime Result:
-`The Rust version executed almost twice as fast, showing a significant improvement in performance over the Python version.`
-<br>
+    ### Comparison of Execution Times:
+    **Python Version**: `Took approximately 2.129 seconds for execution.`
+    **Rust Version**: `Took approximately 1.071 seconds for execution.`
+    ### Runtime Result:
+    `The Rust version executed almost twice as fast, showing a significant improvement in performance over the Python version.`
+    <br>
+
+
+    ### Python version test result:
+    ![Python Version Test Result](ver_py_testresult.png)
+
 
 2. **Memory Usage**: Can use the memory-profiler package in Python and the heaptrack tool for Rust.
 
-**For Python**:
-   ```bash
-   mprof run mini_proj_7/mian.py
-   mprof plot
-   ```
+    **For Python**:
+    ```bash
+    mprof run mini_proj_7/mian.py
+    mprof plot
+    ```
 
-**For Rust**:
-   ```bash
-   heaptrack cargo run --release
-   heaptrack_gui heaptrack.week8mini.12345.gz
-   ```
+    **For Rust**:
+    ```bash
+    heaptrack cargo run --release
+    heaptrack_gui heaptrack.week8mini.12345.gz
+    ```
 
-### Memory Allocation Data:
+    ### Memory Allocation Data:
 
-**Python Version**:
-   ```bash
-   data:
-        CMDLINE /usr/bin/python3 main.py
-        MEM 3.578125 1698031577.0329
-        MEM 19.996094 1698031577.1332
-        MEM 30.339844 1698031577.2336
-        MEM 38.542969 1698031577.3340
-        MEM 48.914062 1698031577.4343
-        MEM 66.542969 1698031577.5346
-        MEM 80.039062 1698031577.6350
-        MEM 84.335938 1698031577.7354
-        MEM 84.351562 1698031577.8358
-        MEM 84.351562 1698031577.9362
-        MEM 85.007812 1698031578.0367
-        MEM 85.007812 1698031578.1370
-        MEM 85.007812 1698031578.2377
-        MEM 85.007812 1698031578.3382
-        MEM 85.761719 1698031578.4387
-   ```
+    **Python Version**:
+    ```bash
+    data:
+            CMDLINE /usr/bin/python3 main.py
+            MEM 3.578125 1698031577.0329
+            MEM 19.996094 1698031577.1332
+            MEM 30.339844 1698031577.2336
+            MEM 38.542969 1698031577.3340
+            MEM 48.914062 1698031577.4343
+            MEM 66.542969 1698031577.5346
+            MEM 80.039062 1698031577.6350
+            MEM 84.335938 1698031577.7354
+            MEM 84.351562 1698031577.8358
+            MEM 84.351562 1698031577.9362
+            MEM 85.007812 1698031578.0367
+            MEM 85.007812 1698031578.1370
+            MEM 85.007812 1698031578.2377
+            MEM 85.007812 1698031578.3382
+            MEM 85.761719 1698031578.4387
+    ```
 
-The Python version starts with a memory usage of approximately 3.58 MiB. There's a notable rise in memory consumption within the initial moments, reaching close to 20 MiB quickly. The memory usage then continues to rise more steadily, peaking around 84.35 MiB. After reaching this peak, the memory consumption becomes relatively stable with minor fluctuations, eventually settling around 85.76 MiB by the end of the captured data. This suggests that the bulk of memory allocations happen during the initial phase of the program's execution, after which the memory usage stabilizes.<br>
+    The Python version starts with a memory usage of approximately 3.58 MiB. There's a notable rise in memory consumption within the initial moments, reaching close to 20 MiB quickly. The memory usage then continues to rise more steadily, peaking around 84.35 MiB. After reaching this peak, the memory consumption becomes relatively stable with minor fluctuations, eventually settling around 85.76 MiB by the end of the captured data. This suggests that the bulk of memory allocations happen during the initial phase of the program's execution, after which the memory usage stabilizes.<br>
 
-**Rust Version**:
-   ```bash
-   data:
-        total runtime: 0.22s.
-        bytes allocated in total (ignoring deallocations): 22.96MB (104.34MB/s)
-        calls to allocation functions: 148589 (675404/s)
-        temporary memory allocations: 55913 (254150/s)
-        peak heap memory consumption: 8.65MB
-        peak RSS (including heaptrack overhead): 84.42MB
-        total memory leaked: 652.18KB
-   ```
+    **Rust Version**:
+    ```bash
+    data:
+            total runtime: 0.22s.
+            bytes allocated in total (ignoring deallocations): 22.96MB (104.34MB/s)
+            calls to allocation functions: 148589 (675404/s)
+            temporary memory allocations: 55913 (254150/s)
+            peak heap memory consumption: 8.65MB
+            peak RSS (including heaptrack overhead): 84.42MB
+            total memory leaked: 652.18KB
+    ```
 
-During the execution of our Rust program, heaptrack profiling indicated a peak heap memory consumption of 8.65MB, with an overall memory allocation of 22.96MB. Most notable was the high frequency of allocation calls, particularly linked to string operations within the Cargo binary, totaling 148,589 calls within a mere 0.22 seconds runtime. Despite this extensive memory activity, a potential area of concern emerged with a detected memory leak of 652.18KB. This emphasizes the importance of rigorous memory management when considering longer or more frequent executions.<br>
+    During the execution of our Rust program, heaptrack profiling indicated a peak heap memory consumption of 8.65MB, with an overall memory allocation of 22.96MB. Most notable was the high frequency of allocation calls, particularly linked to string operations within the Cargo binary, totaling 148,589 calls within a mere 0.22 seconds runtime. Despite this extensive memory activity, a potential area of concern emerged with a detected memory leak of 652.18KB. This emphasizes the importance of rigorous memory management when considering longer or more frequent executions.<br>
 
-### Memory Result:
-Comparing both versions, while the Python script had a gradually increasing memory profile, the Rust version showed a more rapid memory allocation but a slightly lower peak consumption. However, the detected memory leak in the Rust version underscores the need for careful memory management.
+    ### Memory Result:
+    Comparing both versions, while the Python script had a gradually increasing memory profile, the Rust version showed a more rapid memory allocation but a slightly lower peak consumption. However, the detected memory leak in the Rust version underscores the need for careful memory management.
