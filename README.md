@@ -1,10 +1,10 @@
 # IDS706_MiniProj8_YangXu
 
-Rust version:
+Rust version:[This Repositories](https://github.com/nogibjj/IDS706_MiniProj8_YangXu)<br>
 [![Rust CI/CD Pipeline](https://github.com/nogibjj/IDS706_MiniProj8_YangXu/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/IDS706_MiniProj8_YangXu/actions/workflows/cicd.yml)
 
 
-Python version:[https://github.com/nogibjj/IDS706_MiniProj7_YangXu](https://github.com/nogibjj/IDS706_MiniProj7_YangXu)
+Python version:[IDS706_MiniProj7_YangXu Repositories](https://github.com/nogibjj/IDS706_MiniProj7_YangXu)<br>
 [![Python CI](https://github.com/nogibjj/IDS706_MiniProj7_YangXu/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/IDS706_MiniProj7_YangXu/actions/workflows/cicd.yml)
 
 ## Project Overview
@@ -132,15 +132,14 @@ The performance improvements of the Rust project over the Python counterpart can
 
 1. **Time Execution**: Measure the time it takes for both the Python and Rust projects to execute.
 2. **Memory Usage**: Measure the RAM usage of both the Python and Rust projects during execution.
-3. **Throughput**: Determine the number of operations (e.g., database queries) both projects can handle in a fixed amount of time.
-Refer to the 'Performance comparison report' for detailed metrics and results.
+
 
 # Python version test result:
 ![Python Version Test Result](ver_py_testresult.png)
 
 ## Acknowledgements
 
-This Rust project is a rewrite of the Python project, IDS706_MiniProj7_YangXu. The aim is to enhance speed and resource efficiency.
+This Rust project is a rewrite of the Python project, [IDS706_MiniProj7_YangXu](https://github.com/nogibjj/IDS706_MiniProj7_YangXu). The aim is to enhance speed and resource efficiency.
 
 1. **Time Execution**: You can use the `time` command in Linux to measure the time it takes for both scripts to execute.
 
