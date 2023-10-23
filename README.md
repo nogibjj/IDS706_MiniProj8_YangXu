@@ -183,22 +183,22 @@ This Rust project is a rewrite of the Python project, [IDS706_MiniProj7_YangXu](
     **Python Version**:
     ```bash
     data:
-            CMDLINE /usr/bin/python3 main.py
-            MEM 3.578125 1698031577.0329
-            MEM 19.996094 1698031577.1332
-            MEM 30.339844 1698031577.2336
-            MEM 38.542969 1698031577.3340
-            MEM 48.914062 1698031577.4343
-            MEM 66.542969 1698031577.5346
-            MEM 80.039062 1698031577.6350
-            MEM 84.335938 1698031577.7354
-            MEM 84.351562 1698031577.8358
-            MEM 84.351562 1698031577.9362
-            MEM 85.007812 1698031578.0367
-            MEM 85.007812 1698031578.1370
-            MEM 85.007812 1698031578.2377
-            MEM 85.007812 1698031578.3382
-            MEM 85.761719 1698031578.4387
+        CMDLINE /usr/bin/python3 main.py
+        MEM 3.578125 1698031577.0329
+        MEM 19.996094 1698031577.1332
+        MEM 30.339844 1698031577.2336
+        MEM 38.542969 1698031577.3340
+        MEM 48.914062 1698031577.4343
+        MEM 66.542969 1698031577.5346
+        MEM 80.039062 1698031577.6350
+        MEM 84.335938 1698031577.7354
+        MEM 84.351562 1698031577.8358
+        MEM 84.351562 1698031577.9362
+        MEM 85.007812 1698031578.0367
+        MEM 85.007812 1698031578.1370
+        MEM 85.007812 1698031578.2377
+        MEM 85.007812 1698031578.3382
+        MEM 85.761719 1698031578.4387
     ```
 
     The Python version starts with a memory usage of approximately 3.58 MiB. There's a notable rise in memory consumption within the initial moments, reaching close to 20 MiB quickly. The memory usage then continues to rise more steadily, peaking around 84.35 MiB. After reaching this peak, the memory consumption becomes relatively stable with minor fluctuations, eventually settling around 85.76 MiB by the end of the captured data. This suggests that the bulk of memory allocations happen during the initial phase of the program's execution, after which the memory usage stabilizes.<br>
@@ -206,13 +206,13 @@ This Rust project is a rewrite of the Python project, [IDS706_MiniProj7_YangXu](
     **Rust Version**:
     ```bash
     data:
-            total runtime: 0.22s.
-            bytes allocated in total (ignoring deallocations): 22.96MB (104.34MB/s)
-            calls to allocation functions: 148589 (675404/s)
-            temporary memory allocations: 55913 (254150/s)
-            peak heap memory consumption: 8.65MB
-            peak RSS (including heaptrack overhead): 84.42MB
-            total memory leaked: 652.18KB
+        total runtime: 0.22s.
+        bytes allocated in total (ignoring deallocations): 22.96MB (104.34MB/s)
+        calls to allocation functions: 148589 (675404/s)
+        temporary memory allocations: 55913 (254150/s)
+        peak heap memory consumption: 8.65MB
+        peak RSS (including heaptrack overhead): 84.42MB
+        total memory leaked: 652.18KB
     ```
 
     During the execution of our Rust program, heaptrack profiling indicated a peak heap memory consumption of 8.65MB, with an overall memory allocation of 22.96MB. Most notable was the high frequency of allocation calls, particularly linked to string operations within the Cargo binary, totaling 148,589 calls within a mere 0.22 seconds runtime. Despite this extensive memory activity, a potential area of concern emerged with a detected memory leak of 652.18KB. This emphasizes the importance of rigorous memory management when considering longer or more frequent executions.<br>
