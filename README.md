@@ -174,9 +174,8 @@ This Rust project is a rewrite of the Python project, [IDS706_MiniProj7_YangXu](
    heaptrack cargo run --release
    heaptrack_gui heaptrack.week8mini.12345.gz
    ```
-This will give insights into the memory allocation of both scripts.
 
-### Memory Allocation:
+### Memory Allocation Data:
 
 **Python Version**:
    ```bash
